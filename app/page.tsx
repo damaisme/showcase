@@ -16,7 +16,7 @@ const showcase = [
   {
     name: "Funda.id",
     type: "platform",
-    tagline: "Platform belajar IT dengan terminal interaktif.",
+    tagline: "IT learning platform with interactive terminals",
     icon: "/funda.png",
     link: "https://funda.id",
     description: "",
@@ -25,7 +25,7 @@ const showcase = [
   {
     name: "Awanova.cloud",
     type: "platform",
-    tagline: "Bangun Cloud Services Dalam Hitungan Detik.",
+    tagline: "Build Cloud Services in Seconds.",
     icon: "/awanova-logo.png",
     link: "https://awanova.cloud",
     description: "",
@@ -45,7 +45,7 @@ const showcase = [
     type: "open-source",
     tagline: "File Transfer Through ICMP",
     icon: "/",
-    link: "https://github.com/damaisme/notion-next-blog",
+    link: "https://github.com/damaisme/pongo",
     description: "",
     badges: ["Opensource", "Tools"],
   },
@@ -64,7 +64,7 @@ const showcase = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row space-y-8 space-x-4 p-8 md:p-12 min-h-screen bg-white font-sans dark:bg-black">
+    <div className="flex flex-col md:flex-row space-y-8 space-x-4 p-8 md:p-20 min-h-screen bg-white font-sans dark:bg-black">
       <section id="profile">
         <div className="flex flex-col space-y-4 md:pr-4 md:text-lg">
           <div className="flex md:flex-col md:items-start md:space-y-4  space-x-4 items-center">
@@ -80,11 +80,20 @@ export default function Home() {
           <div>
             <p>{profile.bio}</p>
           </div>
+
           <div className="flex space-x-8 items-center">
             <Link target="_blank" href={profile.linkedin} > <Linkedin className="block" /></Link>
             <Link target="_blank" href={profile.instagram} > <Instagram className="block" /></Link>
             <Link target="_blank" href={profile.youtube}><Youtube className="block" /></Link>
           </div>
+          <iframe
+            src="https://damasukma.substack.com/embed"
+            width="480"
+            height="150"
+            style={{
+              width: "100%",
+            }}
+          />
         </div>
       </section >
 
