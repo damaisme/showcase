@@ -1,65 +1,127 @@
+import { Github, Instagram, Linkedin, MapPin, Youtube } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+
+const profile = {
+  name: "Damasukma",
+  based: "Jakarta",
+  picture: "/picture-dama-circle.png",
+  bio: "Software & Cloud Engineer who loves building products and systems end-to-end.",
+  instagram: "https://www.instagram.com/damaisme/",
+  linkedin: "https://www.linkedin.com/in/damasukma/",
+  youtube: "https://www.youtube.com/channel/UCqhduRrV4A8ELHikNUNlo4Q",
+}
+
+const showcase = [
+  {
+    name: "Funda.id",
+    type: "platform",
+    tagline: "Platform belajar IT dengan terminal interaktif.",
+    icon: "/funda.png",
+    link: "https://funda.id",
+    description: "",
+    badges: ["Beta"]
+  },
+  {
+    name: "Awanova.cloud",
+    type: "platform",
+    tagline: "Bangun Cloud Services Dalam Hitungan Detik.",
+    icon: "/awanova-logo.png",
+    link: "https://awanova.cloud",
+    description: "",
+    badges: ["Beta"]
+  },
+  {
+    name: "Next-notion-blog",
+    type: "open-source",
+    tagline: "Notion as Headless CMS for Blog Platform",
+    icon: "/",
+    link: "https://github.com/damaisme/notion-next-blog",
+    description: "",
+    badges: ["Opensource"],
+  },
+  {
+    name: "Pongo",
+    type: "open-source",
+    tagline: "File Transfer Through ICMP",
+    icon: "/",
+    link: "https://github.com/damaisme/notion-next-blog",
+    description: "",
+    badges: ["Opensource", "Tools"],
+  },
+  {
+    name: "Si Paling Kopi",
+    type: "product",
+    tagline: "The best coffee",
+    icon: "/logo-sipalingkopi.png",
+    link: "https://sipalingkopi.shop/",
+    description: "",
+    badges: ["Deprecated"],
+  },
+]
+
+
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col md:flex-row space-y-8 space-x-4 p-8 md:p-12 min-h-screen bg-white font-sans dark:bg-black">
+      <section id="profile">
+        <div className="flex flex-col space-y-4 px-4 md:text-lg">
+          <div className="flex md:flex-col md:items-start md:space-y-4  space-x-4 items-center">
+            <Image src={profile.picture} alt="picture" width={300} height={300} className="w-24 md:w-47" />
+            <div className="flex flex-col space-y-2">
+              <h1 className="font-bold text-2xl">{profile.name}</h1>
+              <p className="flex items-center space-x-2">
+                <MapPin className="block" />
+                <span>{profile.based}</span>
+              </p>
+            </div>
+          </div>
+          <div>
+            <p>{profile.bio}</p>
+          </div>
+          <div className="flex space-x-8 items-center">
+            <Link target="_blank" href={profile.linkedin} > <Linkedin className="block" /></Link>
+            <Link target="_blank" href={profile.instagram} > <Instagram className="block" /></Link>
+            <Link target="_blank" href={profile.youtube}><Youtube className="block" /></Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section >
+
+      <section id="showcase " className="w-full md:text-lg" >
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6">
+          {showcase.map((product) => {
+            return (
+              <Link target="_blank" className="group" key={product.name} href={product.link}>
+                <div key={product.name} className="group-hover:bg-amber-100 w-full bg-white dark:bg-black border border-amber-200  rounded-xl p-4
+              flex flex-col space-y-2">
+
+                  <div className="flex items-center space-x-2">
+                    {product.type == "open-source" ?
+                      (
+                        <Github />
+                      ) : (
+                        <Image src={product.icon} width={50} height={50} alt={product.name} className="w-6 md:w-8 rounded" />
+                      )}
+
+                    <p className="font-bold">{product.name}</p>
+                  </div>
+                  <p className="text-sm md:text-md">{product.tagline}</p>
+                  <div className="flex space-x-2 flex-wrap space-y-2">
+                    {product.badges.map((text, i) => {
+                      return (
+                        <div key={i} className="rounded-md text-sm bg-amber-400 px-2">{text}</div>
+                      )
+                    })}
+                    <div></div>
+                  </div>
+
+                </div>
+              </Link>
+            )
+          })}
         </div>
-      </main>
-    </div>
+      </section >
+    </div >
   );
 }
