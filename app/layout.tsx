@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Damasukma | Showcase Page",
     description: "Software & Cloud Engineer who loves building products and systems end-to-end.",
     url: "/picture-dama-circle.png",
-    siteName: "Nama Site",
+    // siteName: "Damasukma.com",
     images: [
       {
         url: "/picture-dama-circle.png",
