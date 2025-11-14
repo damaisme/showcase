@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <div className="flex flex-col md:flex-row space-y-8 space-x-4 p-8 md:p-12 min-h-screen bg-white font-sans dark:bg-black">
       <section id="profile">
-        <div className="flex flex-col space-y-4 px-4 md:text-lg">
+        <div className="flex flex-col space-y-4 md:pr-4 md:text-lg">
           <div className="flex md:flex-col md:items-start md:space-y-4  space-x-4 items-center">
             <Image src={profile.picture} alt="picture" width={300} height={300} className="w-24 md:w-47" />
             <div className="flex flex-col space-y-2">
